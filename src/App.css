@@ -21,3 +21,11 @@
 .rhap_time, .rhap_total-time{
     color: white !important;
 }
+/* .rhap_play-pause-button{
+    font-size: 70px !important;
+    width: fit-content !important;
+    height: fit-content !important;
+} */
+.rhap_container{
+    padding-bottom:10px !important;
+}

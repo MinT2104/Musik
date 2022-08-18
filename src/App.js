@@ -4,8 +4,8 @@ import Nav from './components/Nav/Nav';
 import songs from "./Context";
 import Home from './components/Home/Home';
 import Playlist from './components/Playlist/Playlist';
-import Save from './components/Pages/Save';
-import Setting from './components/Pages/Setting';
+import Save from './components/Saved/Save';
+import Setting from './components/Setting/Setting';
 import DataSongs from './components/dataSongs/songs.json'
 import Audio from "./components/Audio/Audio";
 import { useState } from "react";

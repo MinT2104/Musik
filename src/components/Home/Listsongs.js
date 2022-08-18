@@ -25,7 +25,7 @@ const Listsongs = () => {
                     <th className="py-2 text-center text-[#FA2FB5]">#</th>
                     <th className="py-2 pl-2 text-left">Name</th>
                     <th className="py-2">Author</th>
-                    <th className="py-2 w-32 text-center">Download</th>
+                    <th className="py-2 w-32 text-left">Download</th>
                 </tr>
                      {dataSongs[0].map((item ,index)=>(
                     
@@ -47,12 +47,22 @@ const Listsongs = () => {
                                 <h1>{item.name}</h1>
                             </td>
                             <td className="py-5 text-left">{item.author}</td>
-                            <td className="py-5 cursor-pointer" href={item.url}>
+                            <td className="py-5 cursor-pointer flex flex-row gap-4" href={item.url}>
                               <a href={item.url}>
                                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                 </svg>
                                 </a>
+                                <button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button>
+                                <button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                                    </svg>
+                                </button>
                             </td>
                         </tr>
                         // console.log(item)

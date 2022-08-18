@@ -6,10 +6,7 @@ import { Parser } from 'html-to-react'
 const Nav = () => {
     const [Active , setActive] = useState(1)
     const activeLink = "border-r-4 border-[#FFC23C] text-[#FFC23C]"
-    const normalLink = " "
-    // const handleActive = ()=>{
-        
-    // }
+
     console.log(Active)
     const li_nav = "text-gray-400 w-full text-center m-4 pl-12 font-semibold hover:border-r-4 hover:border-[#FFC23C] hover:text-[#FFC23C] duration-300 flex flex-row justify-left gap-2 items-center"
    const navPages = [
