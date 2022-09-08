@@ -2,7 +2,7 @@
 import NewSongs from './Newsongs';
 import Hotsongs from './Hotsongs';
 import Listsongs from './Listsongs';
-import MyService from '../MyService/MyService';
+import MyService from "../../components/MyService/MyService";
 // import Audio from '../Audio/Audio';
 
 

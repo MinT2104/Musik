@@ -1,5 +1,5 @@
 import songs from "../../Context";
-import { useState } from "react";
+// import { useState } from "react";
 import { useContext } from "react";
 
 const Hotsongs = () => {
@@ -15,18 +15,17 @@ const Hotsongs = () => {
    
 
     return ( 
-        <div className='flex flex-row gap-10 mx-auto w-full justify-center mb-20'>
+        <div className='flex flex-row flex-wrap gap-5 mx-auto w-full justify-center mb-20'>
             
            {sixSongs.map((item, index)=>(
             <div 
             key={index}
             onClick={()=>{
-            console.log("alo")
             setPlay(item)
         }
                 
             }
-            className='w-40 flex flex-col rounded-lg overflow-hidden cursor-pointer hover:scale-110 duration-300'>
+            className='md:w-40 w-32 m-3 flex flex-col rounded-lg overflow-hidden cursor-pointer hover:scale-110 duration-300'>
                 <img src={`${item.links.images[0].url}`} alt=''/>
                 <h1 className='text-center text-white p-1 pl-0 uppercase font-semibold hover:text-[#FFC23C] duration-300'>
                 {item.name}

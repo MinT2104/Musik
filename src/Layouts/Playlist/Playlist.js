@@ -1,6 +1,6 @@
 
-import MyService from "../MyService/MyService";
-import User from "../Pages/User/User";
+import MyService from "../../components/MyService/MyService";
+import User from "../../components/User/User";
 import AllSongs from "./AllSong";
 import CreatePlaylist from "./CreatePlaylist";
 import HotPlaylist from "./HotPlaylist";

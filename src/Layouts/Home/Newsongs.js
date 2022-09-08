@@ -1,4 +1,4 @@
-import User from '../Pages/User/User';
+import User from "../../components/User/User";
 import songs from "../../Context";
 import { useContext } from "react";
 
@@ -17,19 +17,19 @@ const NewSongs = () => {
         
         
         <h1 className='font-bold text-xl text-white uppercase ml-12'>New Songs</h1>
-        <div className="flex flex-row gap-5 justify-evenly items-center mt-10 flex-wrap">
+        <div className="h-fit flex flex-col w-full md:w-full md:flex-row gap-10 justify-evenly items-center mt-10 flex-wrap px-5 mb-6">
         {
             twoSongs.map((item,index)=>(
 
-                <div key={index} className=" flex flex-row  justify-left gap-7 p-2 bg-[#231b2e] w-fit rounded-xl pr-12 relative hover:translate-y-1.5 duration-300">
+            <div key={index} className=" flex w-full flex-row  justify-left gap-8 p-2 bg-[#231b2e] w-fit rounded-xl md:pr-12 relative hover:translate-y-1.5 duration-300">
                 <span className="font-semibold text-white text-sm p-2 bg-[#FA2FB5] rounded-lg w-fit absolute h-fit left-[-20px] top-[-20px]" >New Song</span>
-                    <div className="w-60 h-60 overflow-hidden rounded-xl">
+                    <div className="md:w-60 md:h-60 w-28 h-28 overflow-hidden rounded-xl">
                     <img src={`${item.links.images[0].url}`} alt=""/>
                     </div>
                     <div className="flex flex-col justify-between">
-                        <div>
-                        <h4 className="text-gray-400">EDM</h4>
-                        <h1 className="text-2xl mt-2 text-white">{item.name}</h1>
+                        <div className="">
+                        <h4 className="text-gray-400 md:blockdisplay nonedisplay">EDM</h4>
+                        <h1 className="text-lg md:text-2xl mt-2 text-white">{item.name}</h1>
                         <h1 className="text-gray-400 mt-2 cursor-pointer hover:text-[#FFC23C] duration-300" >{item.author}</h1>
                         </div>
                        
@@ -94,7 +94,7 @@ const NewSongs = () => {
         <div className='text-white flex flex-row items-center justify-between m-12 mb-5'>
             <h1 className='font-bold text-xl text-white uppercase '>Hot Songs</h1>
             <a href='/' alt>
-                <h4 className='font-semibold uppercase text-sm mr-10 text-gray-500 flex flex-row items-center gap-1 hover:text-[#FFC23C] duration-300'>
+                <h4 className='font-semibold uppercase text-sm md:mr-10 text-gray-500 flex flex-row items-center gap-1 hover:text-[#FFC23C] duration-300'>
                 View more 
                 <span className=''>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

@@ -1,6 +1,9 @@
+import User from "../../components/User/User";
+
 const Save = () => {
     return ( 
-        <div className="col-span-6 h-screen bg-[#170f23] overflow-auto">
+    <div className="col-span-6 h-screen bg-[#170f23] overflow-auto">
+            <User/>
         <h1 className="text-white uppercase text-center text-2xl font-bold mt-10">Saved</h1>
         
         <span className="flex flex-row items-center gap-2 justify-center mb-10 mt-3">
@@ -9,8 +12,9 @@ const Save = () => {
                  <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
             </svg>
         </span>
-        <ul className="mx-auto w-4/5 flex flex-col gap-3">
-            <li className="hover:translate-x-1.5 duration-300 cursor-pointer w-full h-fit p-2 rounded-full items-center justify-between flex flex-row bg-[#231b2e] pr-10">
+        
+        <ul className="mx-auto w-full items-center flex flex-col gap-3">
+            <li className="hover:translate-x-1.5 duration-300 cursor-pointer w-full md:w-4/5 h-fit p-2 rounded-full items-center justify-between flex flex-row bg-[#231b2e] pr-10">
                 <div className="flex flex-row gap-4">
                     <div className="w-14 h-14 rounded-full truncate">
                         <img src="https://i.scdn.co/image/ab6761610000e5eb9e3acf1eaf3b8846e836f441" alt=""/>
@@ -25,7 +29,7 @@ const Save = () => {
                     <button className="p-2 text-white bg-red-500 rounded-full px-4 hover:scale-110 duration-300"> Delete</button>
                 </span>
             </li>
-            <li className="hover:translate-x-1.5 duration-300 cursor-pointer w-full h-fit p-2 rounded-full items-center justify-between flex flex-row bg-[#231b2e] pr-10">
+            <li className=" hover:translate-x-1.5 duration-300 cursor-pointer w-full md:w-4/5 h-fit p-2 rounded-full items-center justify-between flex flex-row bg-[#231b2e] pr-10">
                 <div className="flex flex-row gap-4">
                     <div className="w-14 h-14 rounded-full truncate">
                         <img src="https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36" alt=""/>
@@ -40,7 +44,7 @@ const Save = () => {
                     <button className="p-2 text-white bg-red-500 rounded-full px-4 hover:scale-110 duration-300"> Delete</button>
                 </span>
             </li>
-            <li className="hover:translate-x-1.5 duration-300 cursor-pointer w-full h-fit p-2 rounded-full items-center justify-between flex flex-row bg-[#231b2e] pr-10">
+            <li className=" hover:translate-x-1.5 duration-300 cursor-pointer w-full md:w-4/5 h-fit p-2 rounded-full items-center justify-between flex flex-row bg-[#231b2e] pr-10">
                 <div className="flex flex-row gap-4">
                     <div className="w-14 h-14 rounded-full truncate">
                         <img src="https://i.scdn.co/image/ab6761610000e5ebd546aecf1aac2633551f4c26" alt=""/>
@@ -57,6 +61,7 @@ const Save = () => {
             </li>
            
         </ul>
+       
         </div>
      );
 }

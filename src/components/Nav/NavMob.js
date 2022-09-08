@@ -1,13 +1,13 @@
 import { Link} from "react-router-dom"
 import { useState } from "react"
 import { Parser } from 'html-to-react'
-// import songs from '../../Context';
-// import { useContext } from "react";
+import songs from '../../Context';
+import { useContext } from "react";
 
-const Nav = () => {
+const NavMob = () => {
     
     const [Active , setActive] = useState(1)
-    // const {navMob} = useContext(songs)
+    const {navMob} = useContext(songs)
 
     const activeLink = "border-r-4 border-[#FFC23C] text-[#FFC23C]"
 
@@ -56,7 +56,7 @@ const Nav = () => {
 
     return ( 
 
-        <div className={`col-span-1 h-screen bg-[#231b2e] md:relative absolute md:z-10 block z-40 w-full`}>
+        <div className={`col-span-1 h-screen bg-[#231b2e] md:relative absolute md:z-10 ${(navMob) ? "block" : "hidden" } z-40 w-full`}>
             <div className="md:blockdisplay nonedisplay  w-full h-16 bg-[#000000] absolute bottom-20 flex flex-row justify-between items-center px-5 text-white">
                 <div className="flex flex-row items-center gap-5">
                     <span className="p-2 bg-[#231b2e] rounded-full">
@@ -142,4 +142,4 @@ const Nav = () => {
      );
 }
  
-export default Nav;
+export default NavMob;
