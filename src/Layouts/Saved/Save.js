@@ -1,6 +1,48 @@
 import User from "../../components/User/User";
+import songs from '../../Context';
+import { useContext , useState} from "react";
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+
 
 const Save = () => {
+   const saved_Songs =  JSON.parse(localStorage.getItem("savedSong"))
+    const {accessToken} = useContext(songs)
+    const [allSaveSong, setAllSaveSong] = useState(saved_Songs)
+    const [songId, setSongId] = useState("")
+    // useEffect(()=>{
+    // setAllSaveSong(saved_Songs)
+    // },[saved_Songs])
+    const handleDeleteSong = (index,song)=>{
+        setAllSaveSong(()=> allSaveSong.filter(function(value){
+            if (value === song ){
+                return false;
+            }
+            return true;
+        })
+        )
+        console.log(allSaveSong)
+        localStorage.setItem("savedSong",JSON.stringify(allSaveSong))
+       
+    }
+
+    // const Numbers = ["10", "20", "30", "40"]
+    // Numbers.filter(function(data){
+    //     if(data === "20")
+    //     {
+    //         return false;
+    //     }
+    //     return true;
+    // })
+    // console.log(Numbers)
+    // // ["10", "30", "40"]
+
+
+
+
+
+
+    
     return ( 
     <div className="col-span-6 h-screen bg-[#170f23] overflow-auto">
             <User/>
@@ -13,57 +55,49 @@ const Save = () => {
             </svg>
         </span>
         
+        {accessToken ?  
         <ul className="mx-auto w-full items-center flex flex-col gap-3">
-            <li className="hover:translate-x-1.5 duration-300 cursor-pointer w-full md:w-4/5 h-fit p-2 rounded-full items-center justify-between flex flex-row bg-[#231b2e] pr-10">
+            {Array.isArray(allSaveSong) && allSaveSong.map((song,index)=>(
+                song.title ?
+                <li key={song.id} className="hover:translate-x-1.5 duration-300 cursor-pointer w-4/5 w-4/5 h-fit p-2 rounded-full items-center justify-between flex flex-row bg-[#231b2e] pr-10">
                 <div className="flex flex-row gap-4">
                     <div className="w-14 h-14 rounded-full truncate">
-                        <img src="https://i.scdn.co/image/ab6761610000e5eb9e3acf1eaf3b8846e836f441" alt=""/>
+                        <img src={song.avtURL} alt=""/>
                     </div>
                     <div className="flex flex-col justify-between">
-                        <h5 className="text-white">Blank Space</h5>
-                        <h6 className="text-gray-500">Taylor Swift</h6>
+                        <h5 className="text-white">{song.title}</h5>
+                        <h6 className="text-gray-500">{song.author}</h6>
                     </div>
                 </div>
                 
                 <span>
-                    <button className="p-2 text-white bg-red-500 rounded-full px-4 hover:scale-110 duration-300"> Delete</button>
+                    <button
+                    onClick={()=>{
+                        handleDeleteSong(index,song)
+                        setSongId(song.id)
+                    }  
+                    }
+                    className="p-2 text-white bg-red-500 rounded-full px-4 hover:scale-110 duration-300"> Delete</button>
                 </span>
             </li>
-            <li className=" hover:translate-x-1.5 duration-300 cursor-pointer w-full md:w-4/5 h-fit p-2 rounded-full items-center justify-between flex flex-row bg-[#231b2e] pr-10">
-                <div className="flex flex-row gap-4">
-                    <div className="w-14 h-14 rounded-full truncate">
-                        <img src="https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36" alt=""/>
-                    </div>
-                    <div className="flex flex-col justify-between">
-                        <h5 className="text-white">What Do You Mean</h5>
-                        <h6 className="text-gray-500">Justin Bieber</h6>
-                    </div>
-                </div>
-                
-                <span>
-                    <button className="p-2 text-white bg-red-500 rounded-full px-4 hover:scale-110 duration-300"> Delete</button>
-                </span>
-            </li>
-            <li className=" hover:translate-x-1.5 duration-300 cursor-pointer w-full md:w-4/5 h-fit p-2 rounded-full items-center justify-between flex flex-row bg-[#231b2e] pr-10">
-                <div className="flex flex-row gap-4">
-                    <div className="w-14 h-14 rounded-full truncate">
-                        <img src="https://i.scdn.co/image/ab6761610000e5ebd546aecf1aac2633551f4c26" alt=""/>
-                    </div>
-                    <div className="flex flex-col justify-between">
-                        <h5 className="text-white">Can't blame a girl for trying</h5>
-                        <h6 className="text-gray-500">Sabrina Carpenter</h6>
-                    </div>
-                </div>
-                
-                <span>
-                    <button className="p-2 text-white bg-red-500 rounded-full px-4 hover:scale-110 duration-300"> Delete</button>
-                </span>
-            </li>
+            : null
+            ))}
+            
            
         </ul>
+        :       
+            <div className="w-4/5 mx-auto">
+                <Alert variant="filled" severity="info">
+                    <AlertTitle>No Account was found</AlertTitle>
+                    Please sign in to use it — <strong>check it out!</strong>
+                </Alert>
+            </div>
+    }
+
        
         </div>
      );
 }
  
 export default Save;
+

@@ -1,11 +1,13 @@
 import User from "../../components/User/User";
 import songs from "../../Context";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const NewSongs = () => {
     const dataSongs = Object.values(useContext(songs))
     const {setPlay} = useContext(songs)
     const twoSongs = []
+    // const navigate = useNavigate() 
     for (let i = 79; i < 81 ; i++ ){
         // console.log(dataSongs[0][i])
         twoSongs.push(dataSongs[0][i])
@@ -94,9 +96,11 @@ const NewSongs = () => {
         <div className='text-white flex flex-row items-center justify-between m-12 mb-5'>
             <h1 className='font-bold text-xl text-white uppercase '>Hot Songs</h1>
             <a href='/' alt>
-                <h4 className='font-semibold uppercase text-sm md:mr-10 text-gray-500 flex flex-row items-center gap-1 hover:text-[#FFC23C] duration-300'>
+                <h4 
+                // onClick={navigate("/playlist")}
+                className='font-semibold uppercase text-sm md:mr-10 text-gray-500 flex flex-row items-center gap-1 hover:text-[#FFC23C] duration-300'>
                 View more 
-                <span className=''>
+                <span >
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                     </svg>

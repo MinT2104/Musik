@@ -5,14 +5,17 @@ import { Parser } from 'html-to-react'
 // import { useContext } from "react";
 
 const Nav = () => {
-    
-    const [Active , setActive] = useState(1)
+    const pathLocation = window.location.pathname
+    localStorage.setItem("activepath", pathLocation)
+    // console.log(pathLocation)
+    const currentPath = localStorage.getItem("activepath")
+    const [activePath, setActivePath] = useState(currentPath || "/")
+    // const [Active , setActive] = useState(1)
     // const {navMob} = useContext(songs)
-
     const activeLink = "border-r-4 border-[#FFC23C] text-[#FFC23C]"
 
-    console.log(Active)
-    const li_nav = "text-gray-400 w-full text-center m-4 pl-12 font-semibold hover:border-r-4 hover:border-[#FFC23C] hover:text-[#FFC23C] duration-300 flex flex-row justify-left gap-2 items-center"
+    // console.log(Active)
+    const li_nav = " w-full text-center m-4 md:pl-6 lg:pl-12 font-semibold hover:border-r-4 hover:border-[#FFC23C] hover:text-[#FFC23C] duration-300 flex flex-row justify-left gap-2 items-center"
    const navPages = [
     {
         id:1,
@@ -72,8 +75,7 @@ const Nav = () => {
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
             </div>
             <span className="flex flex-row w-full justify-center p-5 gap-2 items-center relative cursor-pointer ">
-            <div className="absolute w-4 border-[#FA2FB5] border-t-2 border-l-2 h-4 top-4 left-14"></div>
-            <div className="absolute w-4 border-white border-b-2 border-r-2 h-4 bottom-4 right-12"></div>
+           
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#FA2FB5]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                     </svg>
@@ -85,16 +87,17 @@ const Nav = () => {
             <nav> 
                 
                 <h1 className="uppercase text-white font-bold text-lg pl-5 mt-7">Pages</h1>
-                <ul className=" w-full flex flex-col items-center justify-center ">
+                <ul className=" w-full flex flex-col items-center justify-center">
 
                     
                 {navPages.map((item, index) =>(
                      <li key={index}
                      onClick={()=>{
-                        setActive(item.id)
-                        console.log(index +1)
+                        // setActive(item.id)
+                        setActivePath(item.path)
+                        localStorage.setItem("activepath", item.path)
                     }}
-                     className={`${ item.id === Active && activeLink} ${li_nav}`}>
+                     className={`${ activePath === item.path && activeLink   || "text-gray-400"} ${li_nav}`}>
                      
                      {Parser().parse(item.logo)}
                     <Link to={item.path} className="hover:translate-x-1.5 duration-300">{item.title}</Link>

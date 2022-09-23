@@ -17,7 +17,7 @@ const Audio = () => {
             // other props here
             showJumpControls={true}
             showSkipControls={true}
-            autoPlayAfterSrcChange={true}
+            autoPlayAfterSrcChange={true}  
         />
      );
 }

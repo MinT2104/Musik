@@ -16,7 +16,7 @@ const AllSongs = () => {
                 <div 
                 onClick={()=>setPlay(items)}
                 key={index} 
-                className="break-words flex flex-col w-32 md:w-52 gap-2  hover:translate-y-3 duration-300 mb-10">
+                className="break-words flex flex-col w-32 md:w-52 gap-2 hover:translate-y-3 duration-300 mb-10">
                     <div className="cursor-pointer truncate h-32 w-32 md:w-52 md:h-52 bg-gray-200 rounded-3xl flex items-center justify-center cursor-pointer">
                       <img 
                       src={`${items.links.images[0].url}`}
@@ -33,5 +33,4 @@ const AllSongs = () => {
         
      );
 }
- 
 export default AllSongs;
