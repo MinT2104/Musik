@@ -63,7 +63,7 @@ const Songdetail = ({ data, setData, detail}) => {
 
     return ( 
         <section
-        className="text-white w-full bg-none z-50 absolute h-screen top-0 left-0 ">
+        className="animate-opacity text-white w-full bg-none z-50 absolute h-screen top-0 left-0 ">
             <span
              onClick={()=>{
                 setData(!data)
@@ -73,9 +73,7 @@ const Songdetail = ({ data, setData, detail}) => {
                     Back
                 </button>
                </span>
-            <div className="
-            h-full lg:w-3/5  w-full bg-[#231b2e] mx-auto z-50 overflow-auto
-            ">
+            <div className="h-full lg:w-3/5  w-full bg-[#231b2e] mx-auto z-50 overflow-auto scrollbar ">
                 <div className="w-full md:h-72 h-60 overflow-hidden bg-cover bg-black">
                     <img src="https://wallpaperaccess.com/full/1363015.jpg" alt=""/>
                 </div>

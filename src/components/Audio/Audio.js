@@ -6,15 +6,12 @@ import songs from '../../Context';
 
 const Audio = () => {
     const Play = useContext(songs)
-    console.log(Play.Play)
     return ( 
         <AudioPlayer
             className='absolute bottom-0 bg1 z-20 border-t-[1px] border-gray-500 h-fit'
-            autoPlay
             src={Play.Play.url}
             onPlay={e => console.log("onPlay")}
             layout="stacked-reverse"
-            // other props here
             showJumpControls={true}
             showSkipControls={true}
             autoPlayAfterSrcChange={true}  

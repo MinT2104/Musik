@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.rhap_button-clear, .rhap_main-controls-button {
+color: white !important;
+}
+.rhap_play-pause-button{
+color: red !important;
+}
+

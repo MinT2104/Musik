@@ -38,7 +38,7 @@ function App() {
 ]
   const dataUser = JSON.parse(localStorage.getItem("user"))
   const accessToken = JSON.parse(localStorage.getItem("token"))
-  const [Play,setPlay] = useState(DataSongs[0]) 
+  const [Play,setPlay] = useState(null) 
   const [navMob, setNavMob] = useState(false)
   const [logged, getLogged] = useState(false)
     useEffect(()=>{
@@ -56,14 +56,16 @@ function App() {
         </div>
 
         
-    <Routes>
-      <Route index path="/" element={<Home/>} />
-      <Route  path="/playlist" element={<Playlist/>} />
-      <Route  path="/saved" element={<Save/>} />
-      <Route  path="/setting" element={<Setting/>} />
-    </Routes>
-  
-    <Audio/>
+      <Routes>
+        <Route index path="/" element={<Home/>} />
+        <Route  path="/playlist" element={<Playlist/>} />
+        <Route  path="/saved" element={<Save/>} />
+        <Route  path="/setting" element={<Setting/>} />
+      </Routes>
+    {
+      Play !== null && 
+      <Audio/>
+    }
       </songs.Provider>
     </div>
     <div>
